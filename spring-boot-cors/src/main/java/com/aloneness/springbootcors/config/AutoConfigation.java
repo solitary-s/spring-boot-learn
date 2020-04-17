@@ -7,6 +7,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+/**
+ * 3. 使用过滤器实现
+ *
+ */
 @Configuration
 public class AutoConfigation {
     @Bean
