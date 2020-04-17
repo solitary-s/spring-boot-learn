@@ -1,0 +1,6 @@
+spring:
+  mail:
+    host: smtp.qq.com
+    username: logic9711@foxmail.com
+    password: xosxzykivniabfdi
+    default-encoding: UTF-8
