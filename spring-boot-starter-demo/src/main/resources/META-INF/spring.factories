@@ -1,0 +1,2 @@
+#-------starter×Ô¶¯×°Åä---------
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.aloneness.spring.boot.starter.demo.config.DemoConfig

@@ -11,3 +11,4 @@ spring-boot-email | email邮箱的使用
 spring-boot-async | Guava的事件总线EventBus的使用
 spring-boot-mybatis | spring-boot整合mybatis
 spring-boot-cookie | cookie的简单使用
+spring-boot-starter-demo | 自定义starter
