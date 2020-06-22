@@ -1,6 +1,6 @@
-package com.aloneness.springbootmybatis.mapper;
+package com.aloneness.spring.boot.mybatis.mapper;
 
-import com.aloneness.springbootmybatis.domain.Student;
+import com.aloneness.spring.boot.mybatis.domain.Student;
 
 import java.util.List;
 

@@ -1,4 +1,11 @@
 spring:
+  # spring 缓存配置
+  cache:
+    type: caffeine
+    cache-names:
+      - studentCache
+    caffeine:
+      spec: initialCapacity=50,maximumSize=500,expireAfterWrite=600s
   datasource:
     druid:
       url: jdbc:mysql://localhost:3306/student?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -12,7 +19,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
 
 mybatis:
-  type-aliases-package: com.aloneness.spring.boot.mybatis.domain
+  type-aliases-package: com.aloneness.spring.boot.cache.domain
   mapper-locations: classpath:mapper/*.xml
 
 pagehelper:

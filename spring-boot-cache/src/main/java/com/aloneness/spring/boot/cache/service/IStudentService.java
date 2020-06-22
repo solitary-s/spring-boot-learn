@@ -1,6 +1,7 @@
-package com.aloneness.springbootmybatis.service;
+package com.aloneness.spring.boot.cache.service;
 
-import com.aloneness.springbootmybatis.domain.Student;
+
+import com.aloneness.spring.boot.cache.domain.Student;
 
 import java.util.List;
 

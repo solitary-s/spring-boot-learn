@@ -1,6 +1,5 @@
-package com.aloneness.springbootmybatis.domain;
+package com.aloneness.spring.boot.cache.domain;
 
-import com.github.pagehelper.Page;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
