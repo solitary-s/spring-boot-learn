@@ -10,7 +10,7 @@ spring:
         min-idle: 0
     sentinel:
       master: mymaster
-      nodes: 192.168.209.133:26379
+      nodes: xxxx
 
 server:
   port: 8888

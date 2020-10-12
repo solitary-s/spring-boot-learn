@@ -1,4 +1,4 @@
-package com.aloneness.springbootemail.service;
+package com.aloneness.spring.boot.email.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,6 +1,6 @@
-package com.aloneness.springbootemail;
+package com.aloneness.spring.boot.email;
 
-import com.aloneness.springbootemail.service.MailService;
+import com.aloneness.spring.boot.email.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
