@@ -1,6 +1,5 @@
 package com.aloneness.springbootcookie.controller;
 
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -18,8 +18,8 @@ public class CookieController {
     @GetMapping("addCookie")
     public String addCookie(HttpServletResponse response){
         Cookie cookie = new Cookie("username", "pluto");
-
-        cookie.setMaxAge(24 * 60 * 60); // 过期时间1天
+        // 过期时间1天
+        cookie.setMaxAge(24 * 60 * 60);
 
         response.addCookie(cookie);
 
@@ -54,9 +54,25 @@ public class CookieController {
     }
 
     @GetMapping("getSession")
-    public String getSession(HttpServletRequest request){
+    public String getSession(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
-        System.out.println(session.getMaxInactiveInterval()); // 过期时间单位秒，30*60 半个小时
-        return session.getId();
+        session.setAttribute("3568121212", "tong");
+        // Session有效时间(秒) 一个小时
+        session.setMaxInactiveInterval(60 * 60);
+        System.out.println(session.getMaxInactiveInterval());
+        Cookie cookie = new Cookie("sessionId", "3568121212");
+        // 过期时间1天
+        cookie.setMaxAge(24 * 60 * 60);
+        response.addCookie(cookie);
+        return "ok";
+    }
+
+    @GetMapping("getUser")
+    public String getUser(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
+        Optional<Cookie> first = Arrays.stream(request.getCookies()).filter(cookie -> "sessionId".equals(cookie.getName())).findFirst();
+        Object attribute = session.getAttribute(first.get().getValue());
+        System.out.println(attribute);
+        return "ok";
     }
 }
