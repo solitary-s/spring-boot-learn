@@ -45,7 +45,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter  {
 
         String jwt = Jwts.builder().claim("authorities", stringBuffer.toString())
                 .setSubject(authResult.getName())
-                .setExpiration(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
                 .signWith(SignatureAlgorithm.HS512, "tong@123")
                 .compact();
         response.setContentType("application/json;charset=utf-8");

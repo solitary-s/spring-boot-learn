@@ -25,7 +25,7 @@ public class JwtFilter extends GenericFilterBean {
         System.out.println(token);
         Claims claims = Jwts.parser().setSigningKey("tong@123").parseClaimsJws(token.replace("Bearer", "")).getBody();
         String username = claims.getSubject();
-        List<GrantedAuthority> authorization = AuthorityUtils.commaSeparatedStringToAuthorityList((String) claims.get("authorization"));
+        List<GrantedAuthority> authorization = AuthorityUtils.commaSeparatedStringToAuthorityList((String) claims.get("authorities"));
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, null, authorization);
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         filterChain.doFilter(servletRequest, servletResponse);
