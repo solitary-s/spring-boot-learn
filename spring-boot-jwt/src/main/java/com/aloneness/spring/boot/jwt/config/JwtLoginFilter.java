@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Date;
 
-public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter  {
+public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
 
 
     protected JwtLoginFilter(String defaultFilterProcessesUrl, AuthenticationManager authenticationManager) {
