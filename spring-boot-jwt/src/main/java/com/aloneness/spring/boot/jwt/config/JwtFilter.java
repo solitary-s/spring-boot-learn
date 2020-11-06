@@ -22,15 +22,26 @@ import java.util.List;
 
 public class JwtFilter extends GenericFilterBean {
 
+    /**
+     * 校验token是否正确
+     *
+     * @param servletRequest
+     * @param servletResponse
+     * @param filterChain
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.setContentType("application/json;charset=utf-8");
-        PrintWriter writer = response.getWriter();
         String token = request.getHeader("authorization");
         if (StringUtils.isEmpty(token)) {
+            response.setContentType("application/json;charset=utf-8");
+            PrintWriter writer = response.getWriter();
             writer.write("token不能空");
+            writer.flush();
+            writer.close();
         }
         try {
             Claims claims = Jwts.parser().setSigningKey("tong@123").parseClaimsJws(token.replace("Bearer", "")).getBody();
@@ -39,8 +50,9 @@ public class JwtFilter extends GenericFilterBean {
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, null, authorization);
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         } catch (ExpiredJwtException e) {
+            response.setContentType("application/json;charset=utf-8");
+            PrintWriter writer = response.getWriter();
             writer.write("token失效");
-        } finally {
             writer.flush();
             writer.close();
         }
