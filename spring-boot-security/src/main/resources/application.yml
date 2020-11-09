@@ -1,2 +1,10 @@
 server:
   port: 8972
+
+#thymeleaf
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/ #配置模板路径，默认是templates，可用不用配置
+    suffix: .html #在生成URL时附加到视图名称的后缀。
+    mode: HTML5 #模板的模式，支持HTML,XML,TEST,JAVASCRIPT
+    cache: false #是否开启缓存，关闭缓存，避免修改模板还要重启程序

@@ -13,7 +13,14 @@ import java.io.IOException;
 @RestController
 public class VerifyCodeController {
 
-    @GetMapping("/code")
+    /**
+     * 生成验证码
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+    @GetMapping("/vercode")
     public void code(HttpServletRequest request, HttpServletResponse response) throws IOException {
         VerifyCode code = new VerifyCode();
         BufferedImage image = code.getImage();

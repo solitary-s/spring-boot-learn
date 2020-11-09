@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Random;
 
+/**
+ * 验证码工具类
+ */
 public class VerifyCode {
 
     /**

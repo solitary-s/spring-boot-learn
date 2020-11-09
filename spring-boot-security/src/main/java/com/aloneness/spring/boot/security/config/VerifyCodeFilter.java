@@ -18,11 +18,22 @@ public class VerifyCodeFilter extends GenericFilterBean {
 
     private String defaultFilterProcessUrl = "/doLogin";
 
+    private static final String POST_METHOD = "POST";
+
+    /**
+     * 过滤器，校验验证码是否正确
+     *
+     * @param servletRequest
+     * @param servletResponse
+     * @param filterChain
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        if ("POST".equalsIgnoreCase(request.getMethod()) && defaultFilterProcessUrl.equals(request.getServletPath())) {
+        if (POST_METHOD.equalsIgnoreCase(request.getMethod()) && defaultFilterProcessUrl.equals(request.getServletPath())) {
             String code = request.getParameter("code");
             String indexCode = (String) request.getSession().getAttribute("index_code");
             if (StringUtils.isEmpty(code)) {
