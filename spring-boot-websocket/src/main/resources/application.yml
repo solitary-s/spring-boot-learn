@@ -1,0 +1,11 @@
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+
+
+server:
+  port: 8081
+  servlet:
+    context-path: /demo
